@@ -1,6 +1,5 @@
 perl:
   fullname: Perl base
-  subassistants: [ class, dancer ]
   description: This is a base Perl assistant. You have to choose a specific project type.
 
   dependencies:
