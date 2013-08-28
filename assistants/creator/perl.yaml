@@ -5,6 +5,3 @@ perl:
   dependencies:
   - rpm:
     - perl
-
-  dependencies_vim:
-  - call: vim.dependencies_perl
