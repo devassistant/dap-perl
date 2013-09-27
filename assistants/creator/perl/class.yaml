@@ -31,8 +31,10 @@ class:
   - if $(test -d "$name"):
     - log_e: '$name already exists, cannot proceed.'
   - else:
+    - cl: mkdir -p "$dirname"
     - cl_i: cp -r *perlsources "$name"
   - cl: cd "$name"
+  - dda_c: .
   - if defined $vim:
     - call: vim.run
   - cl: cp *gitignore .
