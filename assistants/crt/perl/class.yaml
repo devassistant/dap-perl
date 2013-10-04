@@ -20,9 +20,9 @@ class:
 
   files:
     gitignore: &gitignore
-      source: .gitignore
+      source: ../.gitignore
     perlsources: &perlsources
-      source: class
+      source: .
 
   run:
   - $dirname: $(dirname "$name")
