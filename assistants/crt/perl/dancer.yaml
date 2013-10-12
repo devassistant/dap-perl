@@ -3,6 +3,7 @@ dancer:
   description: 'Dancer assistant helps you to create a basic web application using the Dancer framework.'
 
   dependencies:
+  - call: super.dependencies
   - rpm:
     # Assistant:
     - coreutils

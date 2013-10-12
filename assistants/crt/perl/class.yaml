@@ -3,6 +3,7 @@ class:
   description: 'Class assistant will help you to create a basic perl class.'
 
   dependencies:
+  - call: super.dependencies
   - rpm: ['perl']
 
   dependencies_vim:
