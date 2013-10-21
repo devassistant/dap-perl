@@ -29,7 +29,7 @@ class:
   - $dirname: $(dirname "$name")
   - $basename: $(basename "$name")
   - log_i: 'Creating perl class project $basename in $dirname ...'
-  - if $(test -d "$name"):
+  - if $(test -e "$name"):
     - log_e: '$name already exists, cannot proceed.'
   - else:
     - cl: mkdir -p "$dirname"

@@ -53,7 +53,7 @@ dancer:
   - $basename: $(echo "$modulename" | sed s/::/-/g)
   - $name: $(printf '%s/%s' "$dirname" "$basename")
   - log_i: "Project name will be '$basename'."
-  - if $(test -d "$name"):
+  - if $(test -e "$name"):
     - log_e: "Directory '$name' already exists, nothing to do."
   - log_i: "Creating Dancer project '$basename' in '$dirname'"
   - cl: mkdir -p "$dirname"
