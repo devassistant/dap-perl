@@ -3,7 +3,7 @@ dancer:
   description: 'Dancer assistant helps you to create a basic web application using the Dancer framework.'
 
   dependencies:
-  - call: super.dependencies
+  - use: super.dependencies
   - rpm:
     # Assistant:
     - coreutils
@@ -27,10 +27,10 @@ dancer:
 
   args:
     name:
-      snippet: common_args
+      use: common_args
 
     github:
-      snippet: common_args
+      use: common_args
 
     cgi:
       flags:
@@ -62,7 +62,7 @@ dancer:
   - cl: cd $basename
   - dda_c: .
   - cl: sed -i -e '1i ^\\.devassistant$' MANIFEST.SKIP
-  - call: git_init_add_commit
+  - use: git_init_add_commit
   - if defined $github:
     - github: create_and_push
   - log_i: "Dancer project '$basename' has been created in '$dirname'."

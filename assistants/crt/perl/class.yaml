@@ -3,7 +3,7 @@ class:
   description: 'Class assistant will help you to create a basic perl class.'
 
   dependencies:
-  - call: super.dependencies
+  - use: super.dependencies
   - rpm: ['perl']
 
   dependencies_vim:
@@ -11,13 +11,13 @@ class:
 
   args:
     name:
-      snippet: common_args
+      use: common_args
 
     github:
-      snippet: common_args
+      use: common_args
 
     vim:
-      snippet: vim
+      use: vim
 
   files:
     gitignore: &gitignore
@@ -37,9 +37,9 @@ class:
   - cl: cd "$name"
   - dda_c: .
   - if defined $vim:
-    - call: vim.run
+    - use: vim.run
   - cl: cp *gitignore .
-  - call: git_init_add_commit
+  - use: git_init_add_commit
   - if defined $github:
     - github: create_and_push
   - log_i: 'Perl basic class project $basename in $dirname has been created.'
