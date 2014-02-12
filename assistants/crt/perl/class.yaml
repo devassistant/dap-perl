@@ -1,6 +1,6 @@
 class:
   fullname: Basic class
-  description: 'Class assistant will help you to create a basic perl class.'
+  description: 'Class assistant will help you create a basic perl class.'
 
   dependencies:
   - use: super.dependencies

@@ -1,6 +1,6 @@
 dancer:
   fullname: Dancer
-  description: 'Dancer assistant helps you to create a basic web application using the Dancer framework.'
+  description: 'Dancer assistant will help you create a basic web application using the Dancer framework.'
 
   dependencies:
   - use: super.dependencies
