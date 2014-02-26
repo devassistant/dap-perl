@@ -1,6 +1,5 @@
-perl:
-  fullname: Perl
-  description: This is base Perl assistant. You have to choose a specific project type.
+fullname: Perl
+description: This is base Perl assistant. You have to choose a specific project type.
 
-  dependencies:
-  - rpm: [perl]
+dependencies:
+- rpm: [perl]
