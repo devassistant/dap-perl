@@ -61,7 +61,7 @@ run:
 - cl: cd $basename
 - dda_c: .
 - cl: sed -i -e '1i ^\\.devassistant$' MANIFEST.SKIP
-- use: git_init_add_commit
+- use: git_init_add_commit.run
 - if defined $github:
   - github: create_and_push
 - log_i: "Dancer project '$basename' has been created in '$dirname'."
