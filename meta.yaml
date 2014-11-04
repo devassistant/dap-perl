@@ -7,6 +7,7 @@ summary: Perl assistants
 bugreports: https://github.com/devassistant/dap-perl/issues
 dependencies:
   - common_args
+  - git
   - vim
 description: |
     Kickstarts new Perl projects.
