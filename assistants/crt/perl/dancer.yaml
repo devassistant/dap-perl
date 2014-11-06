@@ -29,7 +29,7 @@ args:
     use: common_args
 
   github:
-    use: common_args
+    use: github
 
   cgi:
     flags:

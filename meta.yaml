@@ -1,5 +1,5 @@
 package_name: perl
-version: 0.10.0dev
+version: 0.10.0
 license: GPLv2+
 authors: [Bohuslav Kabrda <bkabrda@redhat.com>]
 homepage: https://github.com/devassistant/dap-perl
@@ -8,6 +8,7 @@ bugreports: https://github.com/devassistant/dap-perl/issues
 dependencies:
   - common_args
   - git
+  - github
   - vim
 description: |
     Kickstarts new Perl projects.
