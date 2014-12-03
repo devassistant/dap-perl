@@ -63,7 +63,9 @@ run:
 - cl: sed -i -e '1i ^\\.devassistant$' MANIFEST.SKIP
 - use: git.init_add_commit.run
 - if defined $github:
-  - github: create_and_push
+  - github:
+    - create_and_push
+    - reponame: $basename
 - log_i: "Dancer project '$basename' has been created in '$dirname'."
 - log_i: "To work on the poject, move to '$name' directory, and:"
 - log_i: "To start the application, execute './bin/app.pl'."

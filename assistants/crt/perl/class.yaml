@@ -40,6 +40,8 @@ run:
 - cl: cp *gitignore .
 - use: git.init_add_commit.run
 - if defined $github:
-  - github: create_and_push
+  - github:
+    - create_and_push
+    - reponame: $basename
 - log_i: 'Perl basic class project $basename in $dirname has been created.'
 - log_i: 'To run the application use: ./main.pl'
