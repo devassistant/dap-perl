@@ -1,18 +1,17 @@
 #!/usr/bin/perl
 
-#use strict;
+use strict;
 use warnings;
+use 5.010;
 
-use POSIX qw(strftime);
+use Time::Piece;
+use MyClass;
 
-use myClass;
+my $my_object = MyClass->new( 'Holiday', 'Baker Street', 'Sherlock Holmes');
+$my_object->set_booked_date(localtime->strftime('%Y-%m-%d'));
 
-my $myClass = new myClass( "Holiday", "Baker Street", "Sherlock Holmes");
-my $tm = strftime "%m/%d/%Y", localtime;
-$myClass->enterBookedDate($tm);
-
-print ("The hotel name is ". $myClass->getHotelName() . "\n");
-print ("The hotel street is ". $myClass->getStreet() . "\n");
-print ("The hotel is booked on the name ". $myClass->getGuestName() . "\n");
-print ("Accomodation starts at " . $myClass->getBookedDate() . "\n");
+say 'The hotel name is ' . $my_object->get_hotel_name;
+say 'The hotel street is ' . $my_object->get_street;
+say 'The hotel is booked on the name ' . $my_object->get_guest_name;
+say 'Accomodation starts at ' . $my_object->get_booked_date;
 
