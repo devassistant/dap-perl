@@ -43,5 +43,6 @@ run:
   - github:
     - create_and_push
     - reponame: $basename
+      login: $github
 - log_i: 'Perl basic class project $basename in $dirname has been created.'
 - log_i: 'To run the application use: ./main.pl'

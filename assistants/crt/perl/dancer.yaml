@@ -66,6 +66,7 @@ run:
   - github:
     - create_and_push
     - reponame: $basename
+      login: $github
 - log_i: "Dancer project '$basename' has been created in '$dirname'."
 - log_i: "To work on the poject, move to '$name' directory, and:"
 - log_i: "To start the application, execute './bin/app.pl'."
