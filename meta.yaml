@@ -1,5 +1,5 @@
 package_name: perl
-version: 0.10.0
+version: 0.11
 license: GPLv2+
 authors: [Bohuslav Kabrda <bkabrda@redhat.com>]
 homepage: https://github.com/devassistant/dap-perl
