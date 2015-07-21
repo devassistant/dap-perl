@@ -45,4 +45,4 @@ run:
     - reponame: $basename
       login: $github
 - log_i: 'Perl basic class project $basename in $dirname has been created.'
-- log_i: 'To test the class use: prove -v -r t'
+- log_i: 'To test the class use: prove -l -v -r t'
