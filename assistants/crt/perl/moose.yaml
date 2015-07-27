@@ -5,6 +5,7 @@ dependencies:
 - use: super.dependencies
 - rpm:
   - perl(Moose)
+  - perl(DateTime)
 
 dependencies_vim:
 - use: vim.dependencies_perl
