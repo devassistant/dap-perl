@@ -1,5 +1,5 @@
-fullname: Dancer
-description: 'Dancer assistant will help you create a basic web application using the Dancer framework.'
+fullname: Dancer2
+description: 'Dancer2 assistant will help you create a basic web application using the Dancer2 framework.'
 
 dependencies:
 - use: super.dependencies
@@ -7,7 +7,7 @@ dependencies:
   # Assistant:
   - coreutils
   # Dancer:
-  - perl(Dancer)
+  - perl(Dancer2)
   # Makefile.PL
   - perl(ExtUtils::MakeMaker)
   - perl(strict)
@@ -15,7 +15,7 @@ dependencies:
   - perl(YAML)
   - perl(warnings)
   # Tests:
-  - perl(Dancer::Test)
+  - perl(Plack::Test)
 dependencies_cgi:
 - rpm:
   - perl(FindBin)
@@ -48,7 +48,7 @@ args:
 run:
 - $dirname~: $(dirname "$name")
 - $modulename~: $(basename "$name")
-# XXX: Double-collons are translated by the dancer tool into a hyphen.
+# XXX: Double-colons are translated by the dancer tool into a hyphen.
 - $basename~: $(echo "$modulename" | sed s/::/-/g)
 - $name: "$dirname/$basename"
 - log_i: "Project name will be '$basename'."
@@ -57,7 +57,7 @@ run:
 - log_i: "Creating Dancer project '$basename' in '$dirname'"
 - cl: mkdir -p "$dirname"
 - cl: cd $dirname
-- cl: dancer --no-check --application "$modulename"
+- cl: dancer2 --no-check --application "$modulename"
 - cl: cd $basename
 - dda_c: .
 - cl: sed -i -e '1i ^\\.devassistant$' MANIFEST.SKIP
@@ -67,11 +67,10 @@ run:
     - create_and_push
     - reponame: $basename
       login: $github
-- log_i: "Dancer project '$basename' has been created in '$dirname'."
-- log_i: "To work on the poject, move to '$name' directory, and:"
-- log_i: "To start the application, execute './bin/app.pl'."
-- log_i: 'To view the web interface, connect to <http://localhost:3000/>.'
-- log_i: "To change your application settings, execute `./bin/app.pl --help'."
-- log_i: 'To get more details about Dancer framework, read Dancer::Introduction,'
-- log_i: 'Dancer::Tutorial, Dancer::Cookbook, and Dancer POD documentation'
-- log_i: "by executing 'perldoc Dancer::Introduction' etc."
+- log_i: "Dancer2 project '$basename' has been created in '$dirname'."
+- log_i: "To work on the project, move to '$name' directory, and:"
+- log_i: "To start the application, execute 'plackup ./bin/app.psgi'."
+- log_i: 'To view the web interface, connect to <http://localhost:5000/>.'
+- log_i: 'To get more details about Dancer2 framework, read Dancer2::Manual,'
+- log_i: 'Dancer2::Tutorial, Dancer2::Cookbook, and Dancer2 POD documentation'
+- log_i: "by executing 'perldoc Dancer2::Manual' etc."
