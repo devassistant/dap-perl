@@ -4,8 +4,9 @@ use strict;
 use warnings;
 
 use Test::More;
-
 use Time::Piece;
+use FindBin '$Bin';
+use lib "$Bin/../lib";
 
 BEGIN {
     use_ok 'MyClass';
