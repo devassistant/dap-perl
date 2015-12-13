@@ -1,0 +1,76 @@
+fullname: Dancer2
+description: 'Dancer2 assistant will help you create a basic web application using the Dancer2 framework.'
+
+dependencies:
+- use: super.dependencies
+- rpm:
+  # Assistant:
+  - coreutils
+  # Dancer:
+  - perl(Dancer2)
+  # Makefile.PL
+  - perl(ExtUtils::MakeMaker)
+  - perl(strict)
+  - perl(Test::More)
+  - perl(YAML)
+  - perl(warnings)
+  # Tests:
+  - perl(Plack::Test)
+dependencies_cgi:
+- rpm:
+  - perl(FindBin)
+  - perl(Plack::Runner)
+dependencies_fastcgi:
+- rpm:
+  - perl(Plack::Handler::FCGI)
+
+args:
+  name:
+    use: common_args
+
+  github:
+    use: github
+
+  cgi:
+    flags:
+    - --cgi
+    help: 'Enable support for running the application through CGI'
+    action:
+      'store_true'
+
+  fastcgi:
+    flags:
+    - --fastcgi
+    help: 'Enable support for running the application through FastCGI'
+    action:
+      'store_true'
+
+run:
+- $dirname~: $(dirname "$name")
+- $modulename~: $(basename "$name")
+# XXX: Double-colons are translated by the dancer tool into a hyphen.
+- $basename~: $(echo "$modulename" | sed s/::/-/g)
+- $name: "$dirname/$basename"
+- log_i: "Project name will be '$basename'."
+- if $(test -e "$name"):
+  - log_e: "Directory '$name' already exists, nothing to do."
+- log_i: "Creating Dancer project '$basename' in '$dirname'"
+- cl: mkdir -p "$dirname"
+- cl: cd $dirname
+- cl: dancer2 --no-check --application "$modulename"
+- cl: cd $basename
+- dda_c: .
+- cl: sed -i -e '1i ^\\.devassistant$' MANIFEST.SKIP
+- use: git.init_add_commit.run
+- if defined $github:
+  - github:
+    - create_and_push
+    - reponame: $basename
+      login: $github
+- log_i: "Dancer2 project '$basename' has been created in '$dirname'."
+- log_i: "To work on the project, move to '$name' directory, and:"
+- log_i: "To start the application, execute 'plackup ./bin/app.psgi'."
+- log_i: 'To view the web interface, connect to <http://localhost:5000/>.'
+- log_i: 'To get more details about Dancer2 framework, read Dancer2::Manual,'
+- log_i: 'Dancer2::Tutorial, Dancer2::Cookbook, and Dancer2 POD documentation'
+- log_i: "by executing 'perldoc Dancer2::Manual' etc."
